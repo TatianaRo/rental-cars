@@ -1,0 +1,17 @@
+<%= form_with model: @car_category, local: true do |form|%>
+   
+  <%= form.label :name , 'Nome'%>
+  <%= form.text_field :name %>
+
+  <%= form.label :daily_rate,'Diária' %>
+  <%= form.number_field :daily_rate, min: 0%>
+
+  <%= form.label :car_insurance,'Seguro do carro' %>
+  <%= form.number_field :car_insurance %>
+
+  <%= form.label :third_party_insurance, 'Seguro para terceiros' %>
+  <%= form.number_field :third_party_insurance %>
+
+  <%= form.submit "Enviar" %>
+
+<% end %>
