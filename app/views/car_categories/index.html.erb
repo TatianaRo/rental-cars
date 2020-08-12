@@ -1,13 +1,18 @@
 <%= link_to 'Voltar', root_path %> |
-<%= link_to 'Registrar uma nova categoria', new_car_category_path %>
+<%= link_to 'Registrar uma nova categoria', new_car_category_path %> 
 
-<p>
+
+<div>
 <% if @car_categories.each do |category| %>
+  <br>
+  <div>
   <%= link_to category.name, car_category_path(id: category.id) %>
+  </div>
+  <br>
 
 <% end.empty? %>
     <h1> Nenhuma categoria cadastrada </h1>
 <%end%>
-</p>
+</div>
 
 

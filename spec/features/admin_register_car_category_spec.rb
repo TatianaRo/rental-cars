@@ -25,6 +25,6 @@ feature 'Admin register car categories' do
     expect(page).to have_content('R$ 100,00')
     expect(page).to have_content('R$ 50,00')
     expect(page).to have_content('R$ 10,00')
-    expect(page).to have_link('Voltar')
+    expect(page).to have_link('Voltar')  
   end
 end
