@@ -15,12 +15,13 @@ class CarCategoriesController < ApplicationController
     def create
         @car_category = CarCategory.new(car_category_params)
         if @car_category.save
-            redirect_to @car_category 
+            redirect_to @car_category
+            #redirect_to car_category_path(id: @car_category.id)  ou redirect_to car_category_path(@car_category)  
         else 
-            render :new # é difernte de redirect_to new_car_category_path que só manda pra action enquanto o render continua no create e roda a view do new mantendo @car_category 
-        end
-        #alternativa persistend?         
-        #redirect_to car_category_path(id: @car_category.id)  ou redirect_to car_category_path(@car_category)                           
+            render :new 
+            #é diferente de redirect_to new_car_category_path que só manda pra action enquanto o render continua no create e roda a view do new mantendo @car_category 
+        end       
+                                  
     end
 
     private
