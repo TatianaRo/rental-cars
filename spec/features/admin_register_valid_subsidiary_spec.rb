@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'rails_helper'  
 
 feature 'Admin register valid subsidiary' do
 
@@ -28,7 +28,7 @@ feature 'Admin register valid subsidiary' do
         expect(page).to have_content('já está em uso')
     end
 
-    scenario 'and cnpj length must be 13' do
+    scenario 'and cnpj length must be 14' do
         visit root_path
         click_on 'Filiais'
         click_on 'Registrar uma nova filial'
