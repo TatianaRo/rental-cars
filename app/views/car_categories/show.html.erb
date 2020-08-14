@@ -1,3 +1,5 @@
+<%= link_to 'Voltar', car_categories_path %>
+
 <h1><%= @car_category.name %></h1>
 <dl> 
   <dt>Diária</dt> 
@@ -8,5 +10,6 @@
   <dd><%= number_to_currency @car_category.third_party_insurance %></dd> 
 </dl>
 
-
-<%= link_to 'Voltar', car_categories_path %>
+ <%= link_to 'Editar', edit_car_category_path(@car_category) %> |
+  <%= link_to 'Apagar', car_category_path(@car_category), method: :delete,
+                         data: { confirm: 'Tem certeza que deseja apagar?' } %> 
