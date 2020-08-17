@@ -1,0 +1,41 @@
+<ul>
+  <% @car_model.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+  <% end %>
+</ul>
+
+<%= form_with model: @car_model, local: true do |form|%>
+  <div>
+    <%= form.label :name%>
+    <%= form.text_field :name%>
+  </div>
+
+  <div>
+    <%= form.label :year%>
+    <%= form.number_field :year%>
+  </div>
+
+  <div>
+    <%= form.label :manufacturer%>
+    <%= form.text_field :manufacturer%>
+  </div>
+
+   <div>
+    <%= form.label :motorization%>
+    <%= form.text_field :motorization%>
+  </div>
+  
+  <div>
+    <%= form.label :car_category_id%>
+    <%= form.collection_select(:car_category_id, @car_categories, :id, :name, prompt: 'Escolha uma categoria')%>
+  </div>
+
+  <div>
+    <%= form.label :fuel_type %>
+    <%= form.text_field :fuel_type %>
+  </div>
+
+  <%= form.submit 'Enviar'%>
+
+
+<% end %>  
