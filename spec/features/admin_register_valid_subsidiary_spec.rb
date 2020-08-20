@@ -3,6 +3,10 @@ require 'rails_helper'
 feature 'Admin register valid subsidiary' do
 
     scenario 'and attributes cannot be blank' do
+      user = User.create!(name: 'Tatiana Oliveira', email:'tatiana@email.com', 
+                         password: '12345678')
+
+      login_as(user, scope: :user)    
       visit root_path
       click_on 'Filiais'
       click_on 'Registrar uma nova filial'
@@ -16,7 +20,12 @@ feature 'Admin register valid subsidiary' do
     end
 
     scenario 'and cnpj must be unique' do
+        user = User.create!(name: 'Tatiana Oliveira', email:'tatiana@email.com', 
+                            password: '12345678')
+
         Subsidiary.create!(name: 'Filial10', cnpj: '71717095000107', address:'Rua das aves,200')
+
+        login_as(user, scope: :user)  
         visit root_path
         click_on 'Filiais'
         click_on 'Registrar uma nova filial'
@@ -29,6 +38,9 @@ feature 'Admin register valid subsidiary' do
     end
 
     scenario 'and cnpj length must be 14' do
+        user = User.create!(name: 'Tatiana Oliveira', email:'tatiana@email.com', 
+                            password: '12345678')
+        login_as(user, scope: :user)                      
         visit root_path
         click_on 'Filiais'
         click_on 'Registrar uma nova filial'
@@ -41,6 +53,10 @@ feature 'Admin register valid subsidiary' do
     end
 
     scenario 'and cnpj must be valide' do
+        user = User.create!(name: 'Tatiana Oliveira', email:'tatiana@email.com', 
+            password: '12345678')
+        login_as(user, scope: :user) 
+        
         visit root_path
         click_on 'Filiais'
         click_on 'Registrar uma nova filial'
