@@ -1,4 +1,5 @@
 class CarCategoriesController < ApplicationController
+    before_action :authenticate_user!, only: [ :index]  
 
     def index
         @car_categories = CarCategory.all 
@@ -19,7 +20,8 @@ class CarCategoriesController < ApplicationController
             #redirect_to car_category_path(id: @car_category.id)  ou redirect_to car_category_path(@car_category)  
         else 
             render :new 
-            #é diferente de redirect_to new_car_category_path que só manda pra action enquanto o render continua no create e roda a view do new mantendo @car_category 
+            #é diferente de redirect_to new_car_category_path que só manda pra action
+            #enquanto o render continua no create e roda a view do new mantendo @car_category 
         end       
                                   
     end
