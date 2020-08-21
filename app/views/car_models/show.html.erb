@@ -15,3 +15,7 @@
      <dt><%= CarModel.human_attribute_name(:fuel_type)%></dt>
      <dd><%= @car_model.fuel_type%></dd>
   </dl>
+ 
+  <%= link_to 'Editar', edit_car_model_path(@car_model) %> 
+  <%= link_to 'Apagar', car_model_path(@car_model), method: :delete,
+                           data: { confirm: 'Tem certeza que deseja apagar?'}%>
