@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      costumer: 
+        one: 'Cliente'
+        other: 'Clientes'
+    attributes:
+      costumer:
+        name: 'Nome' 
+        document: 'Documento'
+        email: 'Email'
+        costumer_id  : 'Cliente'

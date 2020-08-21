@@ -1,0 +1,14 @@
+<%= link_to 'Voltar', root_path%> |
+<%= link_to 'Registrar um novo cliente', new_costumer_path %>
+
+<% @costumers.each do |costumer|%>
+  <dl>
+    <dt><%= link_to costumer.name, costumer_path(id: costumer.id) %></dt> 
+        <dd><%= costumer.email %></dd>
+  </dl>
+<% end %>
+
+
+<% if @costumers.empty? %>
+  <h3>Nenhum cliente cadastrado</h3>
+<% end %>
