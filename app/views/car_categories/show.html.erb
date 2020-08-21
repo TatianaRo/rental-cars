@@ -8,6 +8,14 @@
   <dd><%= number_to_currency @car_category.car_insurance %></dd> 
   <dt>Seguro de Terceiros</dt> 
   <dd><%= number_to_currency @car_category.third_party_insurance %></dd> 
+  <dt>Modelos da categoria</dt> 
+  <ul>
+  <% if @car_category.car_models.each do |car_model|%>
+    <li><%= link_to car_model.name, car_model_path(car_model)%></li>
+  <% end.empty? %>
+    <p> Nenhuma modelo cadastrado na categoria </p>
+  <%end%>
+  </ul>  
 </dl>
 
 
