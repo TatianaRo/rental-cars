@@ -15,8 +15,11 @@ class CostumersController <  ApplicationController
 
     def create
       @costumer = Costumer.new(costumer_params)
-      @costumer.save
-      redirect_to @costumer
+      if @costumer.save
+        redirect_to @costumer
+      else
+        render :new
+      end
     end
 
 
@@ -26,7 +29,8 @@ class CostumersController <  ApplicationController
     def costumer_params
         params.require(:costumer)
               .permit(:name, :document, :email)
-    end    
+    end   
     
+      
 
 end    
