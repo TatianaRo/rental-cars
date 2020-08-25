@@ -10,4 +10,8 @@ class Costumer < ApplicationRecord
        errors.add(:document, "inválido") 
       end
     end
+
+    def information
+      "#{name} - #{document}"
+    end
 end

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :subsidiaries, only: [:index, :show, :new, :create, :edit, :update, :destroy] 
   resources :car_models
   resources :costumers
+  resources :cars
+  resources :rentals
  end
