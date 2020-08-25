@@ -27,4 +27,28 @@ feature 'Admin schedule rental' do
         expect(page).to have_content('Agendamento realizado com sucesso')
 
     end
+
+    scenario 'must fill in all fields' do
+        user = User.create!(name: 'Lorem Ipsum', email:'lorem@gmail.com',
+                            password: '12345678')
+        login_as user, scope: :user
+        visit root_path
+        click_on 'Locações'
+        click_on 'Agendar nova locação'
+        fill_in 'Data de início', with: ''
+        fill_in 'Data de término', with: '' 
+        click_on 'Agendar'
+
+        expect(Rental.count).to eq 0
+        expect(page).to have_content('não pode ficar em branco', count: 2)
+        expect(page).to have_content('é obrigatório(a)', count: 2)
+    end
+
+        
+    scenario 'must be logged in to view rental details' do
+        visit new_rental_path
+
+        expect(current_path).to eq new_user_session_path
+    end    
+
 end
