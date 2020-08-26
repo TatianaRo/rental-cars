@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :car_models
   resources :costumers
   resources :cars
+  get 'rentals/search', to: 'rentals#search'
   resources :rentals
+  
  end
