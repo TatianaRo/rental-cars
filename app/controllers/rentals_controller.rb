@@ -2,6 +2,7 @@ class RentalsController < ApplicationController
    before_action :authenticate_user!, only: [:index, :show, :new, :create]
 
    def index
+    @rentals = Rental.all
    end  
 
    def show
@@ -28,7 +29,9 @@ class RentalsController < ApplicationController
    end
 
    def search
-    @rentals = Rental.where("token LIKE UPPER(?)", "%#{params[:q]}%")
+    @rentals = Rental.joins(:costumer).where("token LIKE UPPER(:search) 
+                                             OR document LIKE :search
+                                             OR name LIKE :search ", { search: "%#{params[:q]}%" })
     render :index
    end
  

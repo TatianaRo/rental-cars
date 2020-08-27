@@ -6,8 +6,7 @@
   <%= f.submit 'Buscar'%>
 <% end %>
     
- <% if @rentals.present? %>
+
     <% @rentals.each do |rental|%>
         <%= render partial: 'rental', locals: {rental: rental}%> 
     <% end %>   
-<% end %>
