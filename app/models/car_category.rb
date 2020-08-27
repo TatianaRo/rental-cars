@@ -5,6 +5,9 @@ class CarCategory < ApplicationRecord
               :third_party_insurance, presence: true 
     validates :name, uniqueness: { case_sensitive: false}
 
+    validates :daily_rate, :car_insurance, :third_party_insurance,
+              numericality: { greater_than: 0 }
+
     def daily_price
         daily_rate + car_insurance + third_party_insurance
     end    
