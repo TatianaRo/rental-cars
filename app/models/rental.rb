@@ -2,6 +2,7 @@ class Rental < ApplicationRecord
   belongs_to :costumer
   belongs_to :car_category
   belongs_to :user
+  has_one :car_rental
 
   validates :start_date, :end_date , presence: true
 
@@ -14,6 +15,7 @@ class Rental < ApplicationRecord
   end  
 
   private
+  
   def generate_token
     self.token = SecureRandom.alphanumeric(6).upcase
   end  

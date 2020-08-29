@@ -1,5 +1,5 @@
         
-    <dl>
+     <dl>
         <dt>Token</dt>
         <dd> <%= rental.token%></dd>
         <dt>Data de início</dt>
@@ -8,12 +8,8 @@
         <dd> <%= l rental.end_date%></dd>
         <dt>Cliente</dt>
         <dd><%= rental.costumer.name%></dd>
-        <dd><%= rental.costumer.document%></dd>
-        <dd><%= rental.costumer.email%></dd>
         <dt>Categoria de carro</dt>
         <dd><%= rental.car_category.name%></dd>
-        <dt>Previsão de Valor</dt>
-        <dd> <%= number_to_currency rental.total %> </dd>
-        <dt>Usuário</dt>
-        <dd> <%= rental.user.email %> </dd>
-    </dl>
+      </dl>
+
+    <%= link_to 'Ver detalhes', rental%>

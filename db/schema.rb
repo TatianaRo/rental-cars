@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_015119) do
+ActiveRecord::Schema.define(version: 2020_08_29_175303) do
 
   create_table "car_categories", force: :cascade do |t|
     t.string "name"
@@ -33,6 +33,19 @@ ActiveRecord::Schema.define(version: 2020_08_26_015119) do
     t.index ["car_category_id"], name: "index_car_models_on_car_category_id"
   end
 
+  create_table "car_rentals", force: :cascade do |t|
+    t.integer "rental_id"
+    t.integer "car_id"
+    t.integer "user_id"
+    t.datetime "start_date"
+    t.string "driver_license_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_car_rentals_on_car_id"
+    t.index ["rental_id"], name: "index_car_rentals_on_rental_id"
+    t.index ["user_id"], name: "index_car_rentals_on_user_id"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "license_plate"
     t.string "color"
@@ -41,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_26_015119) do
     t.integer "car_model_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["car_model_id"], name: "index_cars_on_car_model_id"
     t.index ["subsidiary_id"], name: "index_cars_on_subsidiary_id"
   end

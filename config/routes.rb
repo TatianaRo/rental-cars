@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :costumers
   resources :cars
   resources :rentals do
+     resources :car_rentals, only: [:new, :create]
      get 'search', on: :collection  
   end   
  end

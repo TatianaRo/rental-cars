@@ -16,7 +16,8 @@ class CarsController <  ApplicationController
     end 
     
     def create
-        @car = Car.new(car_params)  
+        @car = Car.new(car_params)
+        @car.status = 'available'
         if @car.save
           redirect_to @car
         else

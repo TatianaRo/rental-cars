@@ -11,5 +11,6 @@ pt-BR:
         mileage: 'Quilometragem'
         subsidiary: 'Filial'
         subsidiary_id: 'Filial'
+        status: 'status'
         car_model: 'Modelo do carro'
         car_model_id: 'Modelo do Carro'
